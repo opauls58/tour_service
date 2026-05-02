@@ -230,7 +230,6 @@ public class Booking {
     }
 
     public void cancelWithPenalty(int penaltyPoints) {
-        // Проверяем допустимость статуса – аналог обычной отмены
         if (status != BookingStatus.PENDING && status != BookingStatus.CONFIRMED) {
             throw new TourServiceValidationException(
                     "Cannot cancel booking: current status is " + status +
