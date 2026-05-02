@@ -1,5 +1,6 @@
-import exception.TourServiceValidationException;
-import model.*;
+package by.psu;
+
+import by.psu.exception.TourServiceValidationException;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -8,9 +9,8 @@ import java.util.Map;
 
 public class Main {
     public static void main(String[] args) {
-
         try {
-            Client client = new Client(
+            by.psu.model.Client client = new by.psu.model.Client(
                     "Иван Петров",
                     "ivan.petrov@example.com",
                     "+375291234567",
@@ -18,7 +18,7 @@ public class Main {
                     120
             );
 
-            HotelStay hotel = new HotelStay(
+            by.psu.model.HotelStay hotel = new by.psu.model.HotelStay(
                     1,
                     "Отель Европа",
                     new BigDecimal("150.00"),
@@ -26,20 +26,21 @@ public class Main {
                     LocalDate.now().plusDays(5),
                     4,
                     3,
-                    RoomType.DOUBLE
+                    by.psu.model.RoomType.DOUBLE
             );
 
-            Excursion excursion = new Excursion(
+            by.psu.model.Excursion excursion = new by.psu.model.Excursion(
                     2,
                     "Обзорная экскурсия",
                     new BigDecimal("50.00"),
                     LocalDate.now(),
                     LocalDate.now(),
-                    "Минск",
-                    1
+                    "Анна Смирнова",   // guideName
+                    "Пешеходная",      // excursionType
+                    false              // lunchIncluded
             );
 
-            Flight flight = new Flight(
+            by.psu.model.Flight flight = new by.psu.model.Flight(
                     3,
                     "Рейс Минск–Париж",
                     new BigDecimal("300.00"),
@@ -51,12 +52,12 @@ public class Main {
                     true
             );
 
-            Map<TourService, Integer> services = new HashMap<>();
+            Map<by.psu.model.TourService, Integer> services = new HashMap<>();
             services.put(hotel, 2);
             services.put(excursion, 5);
             services.put(flight, 2);
 
-            Booking booking = new Booking(client, services);
+            by.psu.model.Booking booking = new by.psu.model.Booking(client, services);
 
             System.out.println("Создано бронирование:");
             System.out.println(booking);

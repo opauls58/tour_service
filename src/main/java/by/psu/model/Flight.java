@@ -1,11 +1,11 @@
-package model;
+package by.psu.model;
 
 import java.math.BigDecimal;
 import java.text.DecimalFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
-public class Flight extends TourService {
+public class Flight extends by.psu.model.TourService {
 
     private String origin;
     private String destination;

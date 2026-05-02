@@ -1,4 +1,4 @@
-package exception;
+package by.psu.exception;
 
 public class TourServiceValidationException extends RuntimeException {
     public TourServiceValidationException(String message) {
